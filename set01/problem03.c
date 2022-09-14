@@ -14,7 +14,7 @@ int find_sum(int a, int b, int d)
 }
 void output(int a, int b, int d, int c)
 {
-  printf("Sum of %d and %d and %d is %d",a,b,d,c);
+  printf("Sum of %d,%d and %d is %d",a,b,d,c);
 }
 int main()
 {
