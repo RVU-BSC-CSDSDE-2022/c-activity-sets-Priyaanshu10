@@ -16,19 +16,17 @@ input (cmp a, cmp b)
   return temp;
 }
 
-int
-main ()
+int main ()
 {
   cmp a, b, result;
 
   printf ("Enter the real part and imaginary part: ");
   scanf ("%f %f", &a.real, &a.imag);
-  printf ("The first number is %f + i%f \n", a.real, a.imag);
+  printf ("The first number is %.0f+%.0fi \n", a.real, a.imag);
   printf("Enter the real part and imaginary part  of 2nd complex number: ");
   scanf ("%f %f", &b.real, &b.imag);
-  printf ("The second number is %f + i%f \n", b.real, b.imag);
-
+  printf ("The second number is %.0f+%.0fi \n", b.real, b.imag);
   result = input (a, b);
-  printf ("%f + i%f", result.real, result.imag);
+  printf ("The sume of %.0f+%.0fi and %.0f+%.0fi is %.0f+%.0fi",a.real, a.imag,b.real, b.imag, result.real, result.imag);
   return 0;
 }
