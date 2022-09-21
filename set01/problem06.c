@@ -1,7 +1,7 @@
 #include <stdio.h>
 void input(int*a,int*b, int*c)
 {
-  printf("Enter three numbers");
+  printf("Enter three numbers\n");
   scanf("%d %d %d",a,b,c);
 }
 int compare(int a, int b, int c)
@@ -21,6 +21,6 @@ int main()
   int x,y,z,q;
   input(&x,&y,&z);
   q=compare(x, y, z);
-  printf("The largest number among %d, %d and %d is %d ",x,y,z,q);
+  printf("The largest number among %d, %d and %d is %d\n ",x,y,z,q);
   return 0;
 }
