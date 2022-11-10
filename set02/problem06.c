@@ -1,22 +1,22 @@
 #include <stdio.h>
 int input_n()
-{  int n;
+{  int z;
   printf("Enter array sizem:");
-  scanf("%d", &n);
-    return n;
+  scanf("%d",&z);
+    return z;
 }
-void input(int n, int a[n])
+void input(int z, int a[z])
 {
-  for(int i=0;i<n;i++)
+  for(int i=0;i<z;i++)
   { printf("Enter the elements 0f the array");
     scanf("%d",&a[i]);
   }
 }
-float odd_average(int n, int a[n])
+float odd_average(int z, int a[z])
 { int sum;
   int j=0; 
   float avg;
-  for(i=0;i<n;i++)
+  for(i=0;i<z;i++)
     {
       if(a[i]%2!=0)
       {

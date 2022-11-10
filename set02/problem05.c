@@ -3,13 +3,18 @@
 
 int input()
 {
-  int x;
-  printf("Enter x");
-  scanf("%f",&x);
-  return x;
+  int n;
+  printf("Enter the number");
+  scanf("%f",&n);
+  return n;
 }
 
-float borga_X(int x)
+float borga_X(int n)
 {
+int a=0;
+  x=pow(n,a)
+  for(q=2;q++)
+  z=x/a+q
+  for(z<0;a++)
   
 }
