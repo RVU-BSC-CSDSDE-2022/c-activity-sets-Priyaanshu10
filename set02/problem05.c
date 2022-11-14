@@ -52,3 +52,14 @@ int main()
    z=borga_X(n);
    output(n,z);
  }
+
+
+for(i=0;i<=x;i++)
+  {
+    if(i%2!=0)
+    {
+      fact=fact*i;
+      sum=sum+(pow(x,i)/fact);
+    }
+  }
+printf("%f",sum);
