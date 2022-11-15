@@ -1,65 +1,41 @@
 #include <stdio.h>
 #include <math.h>
-
-float input()
+ 
+int fact(int n)
 {
-  float x;
-  printf("Enter the number");
-  scanf("%f",&x);
+    if (n == 1)
+        return 1;
+ 
+    return n * fact(n - 1);
+}
+
+double sum(int x, int n)
+{
+    double i, total = 1.0;
+ 
+    for (i = 1; i <= n; i++) {
+        total = total + (pow(x, i) / fact(2* i + 1));
+    }
+ 
+    return total;
+}
+ 
+int input()
+{
+  int x;
+  printf("Enter x ")
+  scanf("%d",&x);
   return x;
 }
 
-float borga_X(int n)
+void output(int x, int n)
 {
-       c=0;
-  fact=1;
-  i=1;
-  sum=0;
-  while(i<<n)
-  {
-    int c;
-    float sum,i,fact;
-     
-      fact=fact*i;
-      if((int)i%2!=0)
-      {
-      if(c%2==0)
-      {
-       sum=sum+(pow(n,i)/fact);
-       c++;
-      }
-     
-      else
-      {
-      sum=sum-(pow(n,i)/fact);
-      c++;
-      }
-      }
-      i++;
-  }
-  return sum;
-  }
-
-void output(float n, float z);
-{
-  printf("sin %f=%.5f",n,z);
+    printf("Sum is: %f", sum(x, n));
 }
 
 int main()
-{  int c;
-    float n,z;
-   n=input();
-   z=borga_X(n);
-   output(n,z);
- }
-
-
-for(i=0;i<=x;i++)
-  {
-    if(i%2!=0)
-    {
-      fact=fact*i;
-      sum=sum+(pow(x,i)/fact);
-    }
-  }
-printf("%f",sum);
+{
+    x=input();
+    output(x,n);
+    return 0;
+}
