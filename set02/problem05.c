@@ -1,41 +1,25 @@
 #include <stdio.h>
 #include <math.h>
- 
-int fact(int n)
-{
-    if (n == 1)
-        return 1;
- 
-    return n * fact(n - 1);
-}
-
-double sum(int x, int n)
-{
-    double i, total = 1.0;
- 
-    for (i = 1; i <= n; i++) {
-        total = total + (pow(x, i) / fact(2* i + 1));
-    }
- 
-    return total;
-}
- 
-int input()
-{
-  int x;
-  printf("Enter x ")
-  scanf("%d",&x);
-  return x;
-}
-
-void output(int x, int n)
-{
-    printf("Sum is: %f", sum(x, n));
-}
 
 int main()
 {
-    x=input();
-    output(x,n);
+    float sum,term,p;
+    int x,j,i,fact;
+    printf("Enter x ");
+    scanf("%d",&x);
+    sum =0;
+    fact = 1, term = 1; 
+    for (i=1;term>0.000001;i++)
+    {
+        fact=fact*i;
+        if(i%2!=0)
+        {
+            j=(i-1)/2;
+            p=pow(x,j);
+            term=p/fact;
+            sum=sum+term;
+        }
+    }
+    printf("%f",sum);
     return 0;
 }
