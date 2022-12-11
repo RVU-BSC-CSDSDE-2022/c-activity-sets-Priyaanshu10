@@ -1,31 +1,51 @@
-#include<stdio.h>
-#include<string.h>
-void input_two_strings(char s1[],s2[])
-{
-  printf("Enter two strings");
-  scanf("%s%s",s1,s2);
-}
-int mystrcmp(char s1[],char s2[])
-{
-  
-  
-}
-int main()
-{
-char x[20],y[20];
-int k;
+#include <stdio.h>
 
-printf("Enter the first string:");
-scanf("%s",x);
-printf("Enter the sencond string:");
-scanf("%s",y);
-k=strcmp(x,y);
+void input_two_strings(char *a, char *b);
+void input_two_strings(char *a, char *b)
+{
+   printf("Enter 1st name:");
+    scanf("%s",a);
+    printf("Enter 2nd name:");
+    scanf("%s",b); 
+}
 
-if(k>0)
-printf("%s is greater than %s",x,y);
-else if (k<0)
-printf("%s is greater than %s",y,x);
-else
-printf("%s is equal to %s",x,y);
-return 0;
+int stringcompare(char *a, char *b);
+int stringcompare(char *a, char *b)
+{
+    int i,k;
+    for(i=0;a[i]!=0||b[i]!=0;i++)
+    {
+    if(a[i]<b[i])
+    {
+    k=-1;
+    break;
+    }
+    else if(a[i]>b[i])
+    {
+    k=1;
+    break;
+    }
+    else 
+    k=0;
+    }    
+    return k;
+}
+
+void output(char *a, char *b, int result);
+void output(char *a, char *b, int result)
+{
+    if (result<0)
+     printf("%s is greater than %s\n",b,a);
+     else if(result>0)
+     printf("%s is greater than %s\n",a,b);
+     else
+     printf("%s is equal to %s\n",a,b);   
+}
+
+int main() 
+{ char c[20],d[20],j;
+    input_two_strings(c,d);
+   j=stringcompare(c,d);
+   output(c,d,j);
+  return 0; 
 }

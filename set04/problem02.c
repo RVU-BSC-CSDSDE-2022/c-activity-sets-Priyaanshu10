@@ -39,4 +39,5 @@ int main()
   input_triangle(&a1,&b1,&a2,&b2,&a3,&b3);
   result=is_triangle(a1,b1,a2,b2,a3,b3);
   output(a1,b1,a2,b2,a3,b3,result);
+  return 0;
   }
