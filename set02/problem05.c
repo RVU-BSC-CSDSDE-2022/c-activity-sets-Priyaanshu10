@@ -19,11 +19,11 @@ borga_X (int x)
   fact = 1, term = 1;
   for (i = 1; term > 0.000001; i++)
     {
-      fact = fact * i;
-      if (i % 2 != 0)
+      fact = fact*i;
+      if (i%2!= 0)
 	{
-	  j = (i - 1) / 2;
-	  p = pow (x, j);
+	  j = (i-1) / 2;
+	  p = pow (x,j);
 	  term = p / fact;
 	  sum = sum + term;
 	}
@@ -31,8 +31,7 @@ borga_X (int x)
   return sum;
 }
 
-void
-output (int x, float sum)
+void output (int x, float sum)
 {
   printf ("borga(%d) = %f", x, sum);
 }

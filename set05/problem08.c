@@ -1,57 +1,59 @@
-// int find_gcd(int a, int b);
-// Fraction add_n_fractions(int n, Fraction f[n]);
-// void output(int n, Fraction f[n], Fraction sum);
-
 #include <stdio.h>
 
 typedef struct fraction
 {
-    int n,d;
-}frac;
+    int num, den;
+} Fraction;
 
 int input_n()
 {
     int n;
-    printf("How many fractions you want to add-");
-    scanf("%d",&n);
+    printf("Enter the number of fractions: ");
+    scanf("%d", &n);
     return n;
 }
 
-void input_n_fractions(int n, frac a[n])
+void input_n_fractions(int n, Fraction f[n])
 {
-    int i;
-    for(i=0;i<n;i++)
-    {printf("Enter the numerator and denominator of %d fraction-",i+1);
-    scanf("%d %d",&a[i].n,&a[i].d);
+    for (int i = 0; i < n; i++)
+    {
+        printf("Fraction %d:\n", i + 1);
+        printf("Enter the numerator and denominator: ");
+        scanf("%d %d", &f[i].num,&f[i].den);
     }
 }
 
-frac add_n_fractions(int n,frac a[n])
+int find_gcd(int a, int b)
 {
-    int i;
-    frac r;
-    r.d=1,r.n=0;
-    for(i=0;i<n;i++)
+    if (b == 0)
+        return a;
+    return find_gcd(b, a % b);
+}
+
+Fraction add_n_fractions(int n, Fraction f[n])
+{
+    Fraction sum = f[0];
+    for (int i = 1; i < n; i++)
     {
-        r.d=r.d*a[i].d;
+        int gcd = find_gcd(sum.den, f[i].den);
+        int lcm = sum.den * f[i].den / gcd;
+        sum.num = sum.num * (lcm / sum.den) + f[i].num * (lcm / f[i].den);
+        sum.den = lcm;
     }
-    for(i=0;i<n;i++)
-    {
-        a[i].n=a[i].n*r.d;
-    }
-    for(i=0;i<n;i++)
-    {
-        r.n=r.n+a[i].n;
-    }
-    // printf("%d/%d",r.n,r.d);
-    return r;
+    return sum;
+}
+
+void output(int n, Fraction f[n], Fraction sum)
+{
+    printf("The sum of the fractions is: %d/%d\n", sum.num, sum.den);
 }
 
 int main()
 {
-    int n;
-    frac a[49],r;
-    n=input_n();
-    input_n_fractions(n,a);
-    r=add_n_fractions(n,a);
+    int n = input_n();
+    Fraction fractions[n];
+    input_n_fractions(n, fractions);
+    Fraction sum = add_n_fractions(n, fractions);
+    output(n, fractions, sum);
+    return 0;
 }
