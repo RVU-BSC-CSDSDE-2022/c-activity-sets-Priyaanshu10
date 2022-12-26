@@ -1,28 +1,36 @@
 #include <stdio.h>
+
+int input();
+int add(int a, int b);
+void output(int a, int b, int sum);
+
 int input()
 {
-  int a;
-  printf("Enter any number\n");
-  scanf("%d",&a);
-  return a;
+    int n;
+    scanf("%d",&n);
+    return n;
 }
-int find_sum(int a, int b, int d)
+
+int add(int a, int b)
 {
-  int sum;
-  sum=a+b+d;
-  return sum;
+    int sum;
+    sum=a+b;
+    return sum;
 }
-void output(int a, int b, int d, int c)
+
+void output(int a, int b, int sum)
 {
-  printf("Sum of %d,%d and %d is %d",a,b,d,c);
+    printf("The sum of %d and %d is %d",a,b,sum);
 }
+
 int main()
 {
-  int x,y,q,z;
-  x=input();
-  y=input();
-  q=input();
-  z= find_sum(x,y,q);
-  output(x,y,q,z);
-  return 0;
+    int a,b,sum;
+    printf("Enter first number-");
+    a=input();
+    printf("Enter second number-");
+    b=input();
+    sum=add(a,b);
+    output(a,b,sum);
+    return 0;
 }
