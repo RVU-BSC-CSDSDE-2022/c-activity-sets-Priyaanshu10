@@ -1,32 +1,33 @@
-#include<stdio.h>
-#include<math.h>
-void input_camel_details(float *radius,float *height,float *lenght)
+#include <stdio.h>
+
+void input_camel_details(float *radius, float *height, float *length)
 {
-  printf("Enter the radius\n");
-  scanf("%f",radius);
+    printf("Enter the radius of Camel-");
+    scanf("%f",radius);
+    printf("Enter the helight of Camel-");
+    scanf("%f",height);
+    printf("Enter the length of Camel-");
+    scanf("%f",length);
+}
 
-  printf("Enter the height\n");
-  scanf("%f",height);
+float find_weight(float radius, float height, float length)
+{
+    float weight,hl,a,b;
+    hl=height*length;
+    a=hl/2;
+    while(a!=b)
+    {
+        b=a;
+        a=(hl/b+b)/2;
+    }
+    weight=3.141592*radius*radius*radius*a;
+    printf("%f",weight);
+}
 
-  printf("Enter the lenght\n");
-  scanf("%f",lenght);
-  }
-  float find_weight(float radius,float height,float lenght)
-  { 
-    float weight;
-    int a,b,c;
-    a= pow(radius,3);
-    b= height*lenght;
-    c= sqrt(b);
-    weight= 3.14*a*c;
-    return weight;
-    
-  }
-  int main()
-  {
-    float e,f,g,h;
-    input_camel_details(&e,&f,&g);
-    h = find_weight(e,f,g);
-    printf("The weight of camel is %f\n",h);
+int main()
+{
+    float radius,height,length,weight;
+    input_camel_details(&radius,&height,&length);
+    weight=find_weight(radius,height,length);
     return 0;
-  }
+}

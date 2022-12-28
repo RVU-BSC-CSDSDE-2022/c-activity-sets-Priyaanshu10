@@ -1,52 +1,50 @@
 #include <stdio.h>
-#include <math.h>
-typedef struct _point
-{
+
+// void output(Point a, Point b, float res);
+
+typedef struct _point {
   float x;
   float y;
-}Point;
+}cor;
 
-Point input1()
+cor input()
 {
-  Point a;
-  printf("Enter the x co-ordinates of the first point ");
-  scanf("%f",&a.x);
-  printf("Enter the y co-ordinates of the first point ");
-  scanf("%f",&a.y);
-  return a;
+    cor a;
+    scanf("%f %f",&a.x,&a.y);
+    return a;
 }
 
-Point input2()
+void dist(cor a, cor b, float *dis)
 {
-  Point a;
-  printf("Enter the x co-ordinates of the second point ");
-  scanf("%f",&a.x);
-  printf("Enter the y co-ordinates of the second point ");
-  scanf("%f",&a.y);
-  return a;
+    float r,t,d;
+    r=b.x-a.x;
+    t=b.y-a.y;
+    r=r*r;
+    t=t*t;
+    d=r+t;
+    float q,z;
+    q=d/2;
+    while(q!=z)
+    {z=q;
+    q=(d/q+q)/2;
+    }
+    *dis=q;
 }
 
-float dist(Point e, Point f)
+void output(cor a, cor b, float dis)
 {
-  float res1,res2;
-  float distance,p,q;
-  res1 = f.x-e.x;
-  res2 = f.y-e.y;
-  p=pow(res1,2);
-  q=pow(res2,2);
-  distance = sqrt((p+q));
-  return distance;
+    printf("Distance between %.1f,%.1f and %.1f,%.1f is %.1f",a.x,a.y,b.x,b.y,dis);
 }
-void output(Point a, Point b, float distance)
-{
-  printf("The distance between Point (%.2f,%.2f) and Point (%.2f,%.2f) is %.2f",a.x,a.y,b.x,b.y,distance);
-}
+
 int main()
 {
-  Point e,f;
-  float g;
-  e= input1();
-  f= input2();
-  g=dist(e,f);
- output(e,f,g);
+    cor a,b;
+    float dis;
+    printf("Enter the x and y cordinates of first point");
+    a=input();
+    printf("Enter the x and y cordinates of second point");
+    b=input();
+    dist(a,b,&dis);
+    output(a,b,dis);
+    return 0;
 }
