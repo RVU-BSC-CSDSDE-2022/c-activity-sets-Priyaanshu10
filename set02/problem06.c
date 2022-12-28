@@ -1,45 +1,48 @@
 #include <stdio.h>
+
 int input_n()
-{  int z;
-  printf("Enter array size:");
-  scanf("%d",&z);
-    return z;
-}
-void input(int z, int a[z])
 {
-  for(int i=0;i<z;i++)
-  { printf("Enter the elements 0f the array");
-    scanf("%d",&a[i]);
-  }
+    int n;
+    printf("How many number you want to add-")-
+    scanf("%d",&n);
+    return n;
 }
-float odd_average(int z, int a[z])
-{ int sum;
-  int j=0; 
-  float avg;
-  for(i=0;i<z;i++)
+
+void input(int n, int a[n])
+{
+    int i;
+    for(i=0;i<n;i++)
     {
-      if(a[i]%2!=0)
-      {
-        sum=sum+a[i];
-        j++;
-      }
-     }
-  avg=sum/j;
-  return avg;
+    printf("Enter the %d number-",i+1);
+    scanf("%d",&a[i]);
+    }
 }
+
+float odd_average(int n, int a[n])
+{
+    float avg=0;
+    int j=0,i;
+    // printf("%d",a[1]);
+    for(i=0;i<n;i++)
+    {if(a[i]%2!=0)
+    {avg=avg+a[i];
+    j=j+1;}}
+    avg=avg/j;
+    return avg;
+}
+
 void output(float avg)
 {
-  printf("The average of odd numbers in the array is %f", avg);
+    printf("The avrage fo odd numbers from those is %.1f",avg);
 }
 
 int main()
-{ int c;
- 
-  float average;
-  c = input_n();
-  int a[c];
-	input(c,a);
-   average=odd_average(c,a);
-	output(average);
-	return 0;
+{
+    int n,a[20];
+    float avg;
+    n=input_n();
+    input(n,a);
+    avg=odd_average(n,a);
+    output(avg);
+    return 0;
 }
